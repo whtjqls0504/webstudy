@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>table 수업</title>
 </head>
 <body>
   <!-- 
@@ -107,6 +107,7 @@
 
   <br>
   <hr>
+  <h3>열, 행 예제-2</h3>
   <table border="1">
     <tr>
       <td>1</td>
@@ -119,6 +120,90 @@
       <td>6</td>
     </tr>
   </table>
+
+<!-- 셀 병합 
+  1. <td> 태그에 병합 속성을 추가한다.
+  2. 병합 속성
+    1) colspan : 열 병합, 좌우 셀을 병합
+    2) rowspan : 행 병합, 상하 셀을 병합
+ -->
+
+<br>
+<hr>
+
+<h3>열 병합하기</h3>
+<h5>열병합은 좌우 셀을 병합한다.</h5>
+ <!-- 열 병합 : 좌우 셀을 병합한다.-->
+<table border="1">
+  <tbody>
+    <tr>
+      <td>1열</td>
+      <td>2열</td>
+      <td>3열</td>
+    </tr>
+    <tr>
+      <td>1열</td>
+      <td colspan="2">2열</td>
+    </tr>
+    <tr>
+      <td colspan="2">1열</td>
+      <td>2열</td>
+    </tr>
+  </tbody>
+
+</table>
+
+<br>
+<hr>
+
+<h3>행 병합</h3>
+<h5>상하 셀을 병합한다.</h5>
+<!-- 행 병합 : 상하 셀을 병합 -->
+<table border="1">
+  <tr>
+    <td>1행</td>
+    <td>1행</td>
+    <td rowspan="3">1행</td>
+  </tr>
+  <tr>
+    <td>2행</td>
+    <td rowspan="2">2행</td>
+  </tr>
+  <tr>
+    <td>3행</td>
+  </tr>
+</table>
+
+<br>
+<hr>
+
+<!-- 문제1 -->
+<h3>문제1번, 과일가게</h3>
+
+<table>
+  <tr>
+    <td><img src="../../assets/image/fruit1.jpg" width="100px"></td>
+    <td><img src="../../assets/image/fruit2.jpg" width="100px"></td>
+    <td><img src="../../assets/image/fruit3.jpg" width="100px"></td>
+  </tr>
+  <tr>
+    <td>fruit1.jpg</td>
+    <td>fruit2.jpg</td>
+    <td>fruit3.jpg</td>
+  </tr>
+  <tr>
+    <td>1000원</td>
+    <td>2000원</td>
+    <td>3000원</td>
+  </tr>
+  <tr>
+    <td>베리</td>
+    <td>아보카도</td>
+    <td>바나나</td>
+  </tr>
+</table>
+<br>
+
 
 </body>
 </html>
