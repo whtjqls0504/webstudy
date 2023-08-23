@@ -6,8 +6,7 @@
   <title>폰트 스타일 실습</title>
   <style>
 
-    p {
-      
+    p {      
       font-family: '맑은 고딕', '고딕', sans-serif;  /* '맑은 고딕' 사용, 없으면 '고딕' 사용, 없으면 고딕 계열(sans-serif) 사용 */
       font-family: '궁서', '명조', serif;  /* '궁서' 사용, 없으면 '명조', 없으면 명조 계열(serif) 사용 */
       font-size: 32px;  /* 디폴트 16px */
@@ -40,7 +39,21 @@
       /* span, br, strong, em, ins, del, mark, img, a, input, select, textarea, button, label */
       text-align: center; /* 가로 가운데 정렬*/
       text-decoration: none; /* 밑줄 없음 */
-      
+    }
+
+    h1{
+      /*
+        벤더 프리픽스
+        1. Vender Prefix
+        2. CSS속성 앞에 브라우저 벤더(제공업체)를 작성할 수 있다.
+        3. 종류
+          1) -webkit-   : 크롬, 사파리
+          2) -moz-      : 파이어폭스
+          3) -0-        : 오페라 
+      */
+      /* 브라우저마다 다른 텍스트 stoke(line)*/
+      -webkit-text-stroke-color: crimson;
+      -webkit-text-stroke-width: 1px;
     }
 
   </style>
@@ -52,6 +65,6 @@
   <pre>만나서 반갑습니다</pre>
 
   <a href="#">Contact Us</a>
-
+  <h1>Good bye</h1>
 </body>
 </html>
