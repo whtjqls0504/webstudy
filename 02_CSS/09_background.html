@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background 실습</title>
+</head>
+<body>
+<!-- 3교시 실습1 -->
+<style>
+  /* box 크기와 배경 이미지 크기를 동일하게 맞춤. */
+  .box1{
+    box-sizing: border-box;
+    width: 192px;
+    height: 128px;
+    background-image: url(../../assets/image/animal10.jpg);
+    background-size: 192px; /* 박스 크기와 배경 크기를 맞춤 */
+    
+  }
+</style>
+<div class="box1"></div>
+
+<br><hr>
+<style>
+  .box2{
+    box-sizing: border-box;
+    width: 500px;
+    height: 380px;
+    border: 1px solid gray;
+    background-image: url(../../assets/image/attach1.png);
+    background-repeat: no-repeat; /* 반복 없음 .*/
+    background-size: auto;  /* 이미지 크기를 그대로 사용*/
+    background-position: right;  /* top/bottom(세로 정렬) left/center/right(가로정렬) */
+  }
+</style>
+<div class="box2"></div>
+
+
+<br><hr>
+<style>
+  /* box보다 큰 이미지 처리 */
+  .box3{
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    border: 1px solid gray;
+    background-image: url(../../assets/image/animal10.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;  /* contain : 이미지를 늘리거나 자르지 않고 최대한 크기 조정해서 표현.
+                                cover : 너비/높이 중 작은 부분을 최대한 여백 없이 표시하고, box 밖으로 나간 부분은 자름 */
+    background-position: center;  
+  }
+</style>
+<div class="box3"></div>
+
+
+<!-- 4교시 -->
+<br><hr>
+<style>
+  /* 이미지의 일부만 표시하기 */
+  .box4{
+    box-sizing: border-box;
+    width: 115px;
+    height: 115px;
+    background-image: url(../../assets/image/weather.png);
+    background-position: -145px -145px; /* 가로 세로 순으로 이동, -145px은 배경이 왼쪽으로 145px 이동*/
+    /* 배경을 왼쪽으로 이동시키기 */
+  }
+</style>
+<div class="box4"></div>
+
+
+<!-- 4교시 실습 -->
+<br><hr>
+<style>
+  .box5{
+    box-sizing: border-box;
+    width: 195;
+    height: 396px;
+    background-image: url(../../assets/image/logo.png);
+    background-position: -662px -662px;
+  }
+</style>
+<div class="box5"></div>
+</body>
+</html>
