@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>overflow 실습</title>
+</head>
+<body>
+  
+<!-- 3교시  -->
+  <style>
+    /* 영역에서 벗어나는 것을 overflow라 칭한다. */
+    div{
+      box-sizing: border-box;
+      width: 200px;
+      height: 200px;
+      border: 1px solid gray;
+    }
+    .box1 {
+      overflow: scroll; /* 스크롤 바가 생긴다.*/
+    }
+
+    .box2 {
+      overflow: hidden; /* 숨긴다. */
+    }
+  </style>
+  <div class="box1">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere purus metus, vitae feugiat nisi tristique vel. Pellentesque facilisis vehicula nunc vitae convallis. Donec tempor, metus quis viverra viverra, elit lectus suscipit sapien, ac feugiat leo orci in nunc. Cras accumsan metus sit amet dui vehicula finibus. Donec lobortis massa vel lacus mollis malesuada. Cras faucibus faucibus lacus, nec fermentum tellus lobortis sed. Donec rhoncus iaculis velit, in vestibulum neque gravida ac. Maecenas porta eu nunc ac maximus. Etiam purus dui, rhoncus vitae rhoncus sit amet, eleifend ac elit. Cras gravida blandit lectus a venenatis. Aliquam erat volutpat. Donec ac accumsan lectus.
+  </div>
+  <div class="box2">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere purus metus, vitae feugiat nisi tristique vel. Pellentesque facilisis vehicula nunc vitae convallis. Donec tempor, metus quis viverra viverra, elit lectus suscipit sapien, ac feugiat leo orci in nunc. Cras accumsan metus sit amet dui vehicula finibus. Donec lobortis massa vel lacus mollis malesuada. Cras faucibus faucibus lacus, nec fermentum tellus lobortis sed. Donec rhoncus iaculis velit, in vestibulum neque gravida ac. Maecenas porta eu nunc ac maximus. Etiam purus dui, rhoncus vitae rhoncus sit amet, eleifend ac elit. Cras gravida blandit lectus a venenatis. Aliquam erat volutpat. Donec ac accumsan lectus.
+  </div>
+
+</body>
+</html>
