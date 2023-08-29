@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인</title>
+</head>
+
+<!-- 지시사항
+    1) 파일명은 'login.html', 페이지의 제목은 '로그인'으로 작성하시오.
+    2) 로고 이미지는 동일한 이미지를 '학원 홈페이지'(https://www.gdu.co.kr/main/main.html)에서 찾아 웹 경로를 이용하여 삽입하시오.(이미지를 다운로드 받아 표시하지 마시오.) 너비를 176px로 작성하시오.
+    3) 이미지를 제외한 모든 입력 요소들은 form 태그 내부에 작성하시오. '로그인' 버튼을 클릭하면 'board.html' 페이지로 submit 하시오.
+    4) '아이디'는 input type=text, '비밀번호'는 input type=password, '자동 로그인'과 '비밀번호 저장'은 input type=checkbox를 이용해서 작성하고, '로그인'은 button 태그로 작성하시오. 화면과 같은 placeholder 속성을 작성하시오.
+    5) checkbox에 추가된 텍스트 '자동 로그인'과 '비밀번호 저장'은 반드시 label 태그를 이용해서 작성하시오. (각 텍스트를 클릭하면 해당 텍스트의 input type=checkbox들이 선택되는지 확인하시오.)
+-->
+<body>
+  
+<!-- 로고 -->
+<img src="https://www.gdu.co.kr/images/main/logo.png" width="176px">
+
+  <form>
+  <div>
+    <input type="text" placeholder="아이디" name="id"><br>
+    <input type="password" placeholder="비밀번호" name="password"><br>
+    <button><a href="board.html"></a>로그인</button>
+    <br>
+    <input type="checkbox" name="id" value="id" id="autologin">
+    <lable for="autologin">자동로그인</lable>
+    <input type="checkbox" name="password" value="password" id="savepassword">
+    <lable for="savepassword">비밀번호 저장</lable>
+  </div>
+  </form>
+</body>
+</html>
