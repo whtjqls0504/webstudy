@@ -127,11 +127,32 @@
     // 미희     010-3333-3333   mihee@gmail.com 
 
     // 1. 생성자 함수를 정의해서 3개의 객체를 생성하시오.
-    
+    var Person = function(name, mobile, email){
+      this.name = name;
+      this.mobile = mobile;
+      this.email = email;
+    }
+
     // 2. 생성된 3개의 객체를 배열에 저장하시오.
+    var people = [
+      new Person('숙희', '010-1111-1111', 'sookhee@gmail.com'),
+      new Person('정희', '010-2222-2222', 'junghee@gmail.com'),
+      new Person('미희', '010-3333-3333', 'mihee@gmail.com')
+    ];
 
     // 3. 배열에 저장된 값을 테이블 형식으로 출력하시오.
-
+    var str = '<table border="1">';
+      str += '<thead><tr><td>성명</td><td>이메일</td></tr></thead>';
+      str += '<tbody>';
+      for(let i=0; i< people.length; i++){
+          str += '<tr>';
+        for(let i=0; i< people.lengthl; i++){
+          str += '<td>' + people[i][p] + '</td>';
+        }
+        str += '</tr>';
+      }
+      str += '</tbody></table>';
+      document.getElementById('box').innerHTML
 
   </script>
 
