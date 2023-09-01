@@ -136,7 +136,7 @@
   </div>
   <script>
     // 아이디 : 4자 이상, 영문자, 숫자, -, _ 로 구성
-    var regId = /^[A-Za-z0-9-_]{4,}$/;
+    var regId = /^[^A-Za-z0-9-_]{4,}$/;
     var id = document.getElementById('id').value;
     if(regId.test(id)){
       alert('아이디가 맞습니다.');
@@ -152,16 +152,34 @@
     <input type="button" value="검사" id="btn_pw_check">
   </div>
   <script>
-    // 비밀번호 : 8~20자, 영문,숫자, 특수문자, 2가지 이상 포함.
-    var regPw = /^[A-Za-z0-9]{8,20}$/;
-    var pw = document.getElementById('pw').value;
+    document.getElementById('btn_pw_check').addEventListener('click', function(){
 
-    if(regPw.test(pw)){
-      alert('비밀번호가 맞습니다.');
-    } else {
-      alert('비밀번호가 다릅니다.');
-    }
+    // 비밀번호 : 8~20자, 영문,숫자, 특수문자, 2가지 이상 포함.
+    var pw = document.getElementById('pw').value;
+    var validPwCount = /[A-Z]/.test(pw)         // 대문자가 있으면 true
+                     + /[a-z]/.test(pw)         // 소문자가 있으면 true
+                     + /[0-9]/.test(pw)         // 숫자가 있으면 true
+                     + /[^A-Za-z0-9]/.test(pw);  // 특수문자가 있으면 true
+      if(pw.length >=8 && pw.length <=20 && validPwCount){
+        alert('사용 가능한 비밀번호 입니다.');
+      } else {
+        alert('사용할 수 없는 비밀번호입니다.');
+      }
+
+  })
   </script>
+  <div>
+    <h1>이메일 검사</h1>
+    <input type="text" id="email">
+    <input type="button" value="검사" id="btn_email_check">
+  </div>
+  <script>
+    // 이메일
+    document.getElementById('btn_email_check').addEventListener('click', function(){
+      
+    })
+  </script>
+
 
 </body>
 </html>
