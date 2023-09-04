@@ -38,17 +38,18 @@
   <!-- location 객체 -->
   <!-- 경로를 바꿀때 사용한다. -->
   <div>
-    <input type="button" value="네이버" id="btn_naver" data-site="naver"> 
     <!-- 두가지의 버튼을 구분하는 방법 data-site(데이터속성이다.) -->
-    <input type="button" value="구글" id="btn_google" data-site="google">
+    <input type="button" value="네이버" class="btn_link" data-site="naver"> 
+    <input type="button" value="구글" class="btn_link" data-site="google">
   </div>
   <script>
     var btnLink = document.getElementsByClassName('btn_link');
     for(let i =0; i< btnLink.length; i++){
       btnLink[i].addEventListener('click', function(){
+        var url;
         switch(this.dataset.site){
-          case 'naver' : url = 'https://www.naver.com/';
-          case 'google' : url = 'https://www.google.com/';
+          case 'naver' : url = 'https://www.naver.com/'; break;
+          case 'google' : url = 'https://www.google.com/'; break;
         }
         location.href = url;
       })
@@ -59,7 +60,7 @@
   <div>
     <label for="send_msg">전송 메시지</label>
     <input type="text" id="send_msg">
-    <input type="button" value="창 열기" id="btn_send">
+    <input type="button" value="전송" id="btn_send">
   </div>
   <div>
     <div id="receive_msg">받은 메시지는 여기에 표시됩니다.</div>

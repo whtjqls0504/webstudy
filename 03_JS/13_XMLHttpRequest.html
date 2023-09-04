@@ -91,16 +91,44 @@
             for(let i =0; i< book.length; i++){
               str += '<ul>';
               str += '<li>' + book[i].getAttribute('title') + '</li>';
-              str += '</ul>' + 
+              str += '</ul>';
             }
+            document.getElementById('xml_response2').innerHTML = str;
           }
         }
       })
 
-    })
-
-
+    }) 
   </script>
+    <hr>
+    <div class="wrap3">
+      <input type="button" value="JSON요청1" id="btn_json_requet1">
+      <div id="xml_response2"></div>
+    </div>
+
+    <script>
+      document.getElementById('btn_json_requet1').addEventListener('click', function(){
+          var xhr = new XMLHttpRequest();
+          xhr.open('get', 'book1.json', true);
+          xhr.send();
+          xhr.addEventListener('readystatechange', function(){
+            if(xhr.readyState === 4){
+              if(xhr.status === 200){
+                var data = xhr.responseText;
+                console.log(data);
+          }
+        }
+      })
+    })
+    </script>
+
+
+    <hr>
+    <div class="wrap4">
+      <input type="button" value="JSON요청2" id="btn_json_requet2">
+      <div id="xml_response2"></div>
+    </div>
+
 
   
 </body>
