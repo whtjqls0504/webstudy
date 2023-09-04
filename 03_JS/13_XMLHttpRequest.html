@@ -175,6 +175,51 @@
       </table>
     </div>
 
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'sfc_web_map.xml', true);
+        xhr.send();
+        xhr.addEventListener('readystatechange', function(){
+          if(xhr.readyState === 4){
+            if(xhr.status === 200){
+              var data = xhr.responseXML;
+              var local = data.getElementsByTagName('local');
+              var str = '';
+              for(let i =0; i<local.length; i++){
+                str += '<tr>';
+                str += '<td>' + (i + 1) + '</td>';
+                str += '<td>' + local[i].textContent + '</td>';
+                str += '<td>' + local[i].getAttribute('desc')+ '</td>';
+                str += '<td>' + local[i].getAttribute('ta') + '</td>';
+                str += '</tr>'; 
+              }
+              document.getElementById('sfc_web_map').innerHTML = str;
+            }
+          }
+        })
+  </script>
+
+
+  <!-- 문제2. weather.json 읽어서 테이블로 표시하기(지역명: "서울ㆍ인천ㆍ경기도", 시간, 날씨, 최저온도, 최고온도)-->
+  <div class="wrap6">
+    <table border="1">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td>지역명</td>
+          <td>시간</td>
+          <td>날씨</td>
+          <td>최저온도</td>
+          <td>최고온도</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
   
+  <script>
+
+  </script>
+
 </body>
 </html>
