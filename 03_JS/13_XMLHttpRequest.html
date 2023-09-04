@@ -87,6 +87,12 @@
           if(xhr.status === 200){
             var data = xhr.responseXML;
             var book = data.getElementsByTagName('book');
+            var str = '';
+            for(let i =0; i< book.length; i++){
+              str += '<ul>';
+              str += '<li>' + book[i].getAttribute('title') + '</li>';
+              str += '</ul>' + 
+            }
           }
         }
       })
