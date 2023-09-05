@@ -86,5 +86,24 @@
       alert($(this).text() + ' 이동합니다.');
     })
   </script>
+
+  <hr>
+
+  <!-- 이벤트로 생성한 요소에 이벤트 등록하기 -->
+  <div>
+    <button id="btn_static">버튼</button>
+  </div>
+  <div id="btn_area">
+
+  </div>
+  <script>
+    $('#btn_static').on('click', function(){
+      $('#btn_area').html('<button id="btn_dynamic">새버튼</button>');
+    })
+    // 이 버튼을 대상으로 클릭 이벤트를 걸자.
+    $(document).on('click', '#btn_dynamic', function(){
+      alert($(this).text() + ' 클릭했다.');
+    })
+  </script>
 </body>
 </html>
