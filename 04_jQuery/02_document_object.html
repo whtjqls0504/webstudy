@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문서객체 실습</title>
+  <!-- 다운받은 라이브러리를 사용해보자. -->
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <div id="box" class="wrap"></div>  
+  <script>
+    // 1. 태그로 인식하면 배열
+    var div = $('div');
+    console.log(div);
+
+    // 2. id로 인식하면 객체
+    var box = $('#box');
+    console.log(box);
+
+    // 3. class로 인식하면 배열
+  </script>
+</body>
+</html>
