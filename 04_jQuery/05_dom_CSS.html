@@ -9,123 +9,31 @@
 <body>
   
 
-  <!-- 태그 내부 텍스트 -->
+  <!-- CSS 처리하기 -->
   <p id="p1">Hello World</p>
   <script>
+    
     /*
-                         | JavaScript                  | jQuery
-      -------------------|-----------------------------|--------------------
-      내부텍스트가져오기 | 요소.textContent            | 요소.text()
-      내부텍스트설정하기 | 요소.textContent = '텍스트' | 요소.text('텍스트')
+
+                        | JavaScript                       | jQuery
+      ------------------|----------------------------------|--------------------
+      css속성 가져오기  | 요소.style.fontSize              | 요소.css('font-size')
+                        | 요소.style['font-size']          | 요소.css('font-size')
+      css속성 설정하기  | 요소.style.fontSize = '32px'     | 요소.css('font-size', '32px')
+                        | 요소.style['font-size'] = '32px' | 요소.css('font-size', '32px') 
     */
+
+    // jQuery 객체 생성
     var p1 = $('#p1');
-    console.log(p1.text());
-    p1.text('안녕하세요. 반갑습니다.');
-  </script>
 
+    // 메소드 체이닝을 이용한 CSS 적용
+    p1.css('font-size', '32px').css('font-weight', '900');
 
-  <hr>
-
-  
-  <!-- 태그 내부 요소 -->
-  <p id="p2"><strong>Hello World</strong></p>
-  <script>
-    /*
-                         | JavaScript                 | jQuery
-      -------------------|----------------------------|--------------------
-      내부요소가져오기   | 요소.innerHTML             | 요소.html()
-      내부요소설정하기   | 요소.innerHTML = '요소'    | 요소.html('요소')
-    */
-    var p2 = $('#p2');
-    console.log(p2.html());
-    p2.html('<mark>안녕하세요. 반갑습니다.</mark>');
-  </script>
-
-
-  <hr>
-
-
-  <!-- 태그 추가 (부모-자식 관계) -->
-  <div id="box1">
-    <ul id="menu">
-    </ul>
-  </div>
-  <script>
-    
-    /*
-      1. 부모.prepend(자식)   : 첫번째 자식으로 추가하기
-      2. 부모.append(자식)    : 마지막 자식으로 추가하기
-      3. 자식.prependTo(부모) : 첫번째 자식으로 추가하기
-      4. 자식.appendTo(부모)  : 마지막 자식으로 추가하기
-    */
-
-    // 부모 요소 jQuery 객체 생성
-    var menu = $('#menu');
-
-    // 부모 요소에 자식 추가하기
-    menu.prepend('<li id="kimchi">김치</li>');
-    menu.prepend($('<li>').attr('id', 'pizza').text('피자'));
-    menu.append('<li id="donut">도넛</li>');
-    menu.append($('<li>').attr('id', 'pasta').text('파스타'));
-    
-    // 자식 요소를 부모에 추가하기
-    var str = '<li id="coffee">커피</li>';
-    $(str).prependTo(menu);
-    var obj = $('<li>').attr('id', 'ramen').text('라면');
-    obj.appendTo(menu);
-
-  </script>
-
-
-  <hr>
-
-
-  <!-- 태그 추가 (형제 관계) -->
-  <div id="box2">
-    <ul id="movies">
-      <li id="terminator">터미네이터</li>
-    </ul>
-  </div>
-  <script>
-
-    /*
-      1. 형제.before(형제) : 이전 형제로 추가하기
-      2. 형제.after(형제)  : 다음 형제로 추가하기
-    */
-
-    // 형제 요소 jQuery 객체 생성
-    var item = $('#terminator');
-
-    // 이전 형제로 추가하기
-    item.before('<li id="alien">에일리언</li>');
-    item.before($('<li>').attr('id', 'starwars').text('스타워즈'));
-
-    // 다음 형제로 추가하기
-    var id = 'topgun';
-    var title = '탑건';
-    item.after('<li id="' + id + '">' + title + '</li>');
-    var id = 'avatar';
-    var title = '아바타';
-    item.after($('<li>').attr('id', id).text(title));
-
-  </script>
-
-
-  <hr>
-
-
-  <!-- 태그 제거 -->
-  <div id="box3">
-    <strong id="s1">Hello World</strong>
-    <strong id="s2">Nice to meet you</strong>
-  </div>
-  <script>
-
-    // 특정 요소만 제거하기
-    $('#s2').remove();
-
-    // 하위 요소 제거하기
-    $('#box3').empty();
+    // 객체 전달을 이용한 CSS 적용
+    p1.css({
+      'background-color': 'crimson',
+      'border': '1px solid gray'
+    });
 
   </script>
 
