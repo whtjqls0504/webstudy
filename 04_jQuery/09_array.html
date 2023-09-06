@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../../assets/js/lib/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div id="box1"></div>
+  <script>
+    // 배열 생성 및 초기화
+    var fourSeason = ['spring', 'summer', 'autumn', 'winter'];
+
+    // 배열 요소 순회, each() 메소드
+    $.each(fourSeason, function(i){     // i : 배열 인덱스
+        console.log(i);
+    })
+    $.each(fourSeason, function(i, elem){    // i : 배열 인덱스, elem : 배열 요소
+      console.log(i, elem);
+    })
+
+    /*
+      1. spring
+      2. summer
+      3. autumn
+      4. winter
+
+    */
+
+    var ol = $('<ol>');
+    $.each(fourSeason, function(i, elem){
+        ol.append($('<li>').text(elem));
+    })
+
+    ol.appendTo($('#box1'));
+    // 다른방법으로 box에 넣기
+    $('#box1').append(ol);
+
+  </script>
+
+  <hr>
+  <div id="box2"></div>
+  <script>
+    var people = [
+      {
+        'name': 'alice',
+        'age' : 20,
+        'moblie' : '010-0000-0000'
+      },
+      {
+        'name' : 'diana',
+        'age'  : 30,
+        'mobile' : '010-1111-1111'
+      }
+    ]
+  </script>
+
+  <hr>
+  <!-- box3 -->
+  <div id="box3"></div>
+  <script>
+    // 배열 생성 및 초기화
+    var stie = [
+      {
+        'host' : '네이버',
+        'url'  : 'https://www.naver.com/',
+        'target' : '_blank'
+      },
+      {
+        'host' : '구글',
+        'url'  : 'https://www.google.com/',
+        'target' : '_self'
+      }
+    ]
+
+    /*
+    
+    */
+  </script>
+
+  <hr>
+  <!-- box4 -->
+  <div id="box4">
+    <ul>
+      <li class="movies">터미네이터</li>
+      <li class="movies">아바타</li>
+      <li class="movies">에일리언</li>
+      <li class="movies">스타워즈</li>
+      <li class="movies">어벤져스</li>
+    </ul>
+  </div>
+  <script>
+
+    // class="movies"인 요소를 배열로 만들기
+    var movies = []
+  </script>
+
+  <hr>
+  <!-- box5 -->
+  <div id="box5">
+    <select id="region">
+      <option value="02">서울</option>
+      <option value="031">경기</option>
+      <option value="032">인천</option>
+    </select>
+  </div>
+  <script>
+    // di가 region인 요소를 배열로 만들기
+
+    var region = [
+      {
+        'name' : '서울',
+        'tel'  : '02'
+      },
+      
+    ]
+  </script>
+</body>
+</html>
