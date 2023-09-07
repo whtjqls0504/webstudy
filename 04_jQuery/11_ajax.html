@@ -108,9 +108,11 @@
       display: block;
     }
   </style>
+
+
   <hr>
 
-<!-- 3교시 -->
+
   <div id="box3">
     <button id="btn3">JSON요청1</button>
   </div>
@@ -118,16 +120,16 @@
     $('#btn3').click(function(){
       $.ajax({
         /* 요청 */
-        type : 'get',
-        url : 'product1.json',
-        async : true,
-
+        type: 'get',
+        url: 'product1.json',
+        async: true,
         /* 응답 */
-        dataType : 'json',
-        success : function(resData){    // resData = JSON.parse(xhr.responseText)
-          parseJSON(resData);           // myFunc1 함수 호출
+        dataType: 'json',
+        success: function(resData){         // resData = JSON.parse(xhr.responseText)
+          $('#box3').find('div').remove();  // 기존 목록 제거하기
+          myFunc1(resData);                 // myFunc1 함수 호출
         },
-        error : function(jqXHR){
+        error: function(jqXHR){
           alert(jqXHR.status + '(' + jqXHR.statusText + ')');
         }
       })
@@ -135,67 +137,146 @@
     // myFunc1 함수 정의
     function myFunc1(resData){
       var productList = $('<div>').addClass('product_list');
-        // 배열
       $.each(resData, function(i, elem){
         var ul = $('<ul>').addClass('product');
         ul.append($('<li>').text(elem.maker));
         ul.append($('<li>').text(elem.model));
         ul.append($('<li>').text(elem.price));
-
-        // ul를 productList에 넣지 않아서?
         productList.append(ul);
-
       })
-      $('#box3').append(productList);  
+      $('#box3').append(productList);
     }
-    
   </script>
   <style>
-    /* css */
+    #box3 * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    #box3 .product_list {
+      width: 400px;
+      display: flex;
+      justify-content: space-around;
+      border: 1px solid crimson;
+    }
+    #box3 .product {
+      list-style-type: none;
+      width: 100px;
+      padding: 20px 10px;
+      text-align: center;
+      border: 1px solid gray;
+    }
   </style>
 
+
   <hr>
+
 
   <div id="box4">
     <button id="btn4">JSON요청2</button>
   </div>
   <script>
-    $('#btn4').click(function (){
+    $('#btn4').click(function(){
       $.ajax({
         /* 요청 */
-        type : 'get',
-        url : 'product2.json',
-        async : true,
-
+        type: 'get',
+        url: 'product2.json',
+        async: true,
         /* 응답 */
-        dataType : 'json',
-        // 성공했을 경우
-        success : function(resData){  // resData = JSON.parse(xhr.responseText)
-          $('#box4').find('table').remove();
-          myFunc2(resData);
-          // 응답결과를 table로
+        dataType: 'json',
+        success: function(resData){           // resData = JSON.parse(xhr.responseText)
+          $('#box4').find('table').remove();  // 기존 테이블 제거하기
+          myFunc2(resData);                   // myFunc2 함수 호출
         },
-        error : function(jqXHR){
+        error: function(jqXHR){
           alert(jqXHR.status + '(' + jqXHR.statusText + ')');
         }
       })
     })
     // myFunc2 함수 정의
     function myFunc2(resData){
-      var table = $('<table border="1"><thead><tr><td>순번</td><td>제조사</td><td>모델</td><td>가격</td></tr></thead>').addClass('product_list');
+      var table = $('<table border="1"><thead><tr><td>순번</td><td>제조사</td><td>상품</td><td>가격</td></tr></thead><tbody>');
       $.each(resData.products, function(i, elem){
         var tr = $('<tr>');
-        tr.append($('<td>').text(i + 1)); // 순번
+        tr.append($('<td>').text(i + 1));
         tr.append($('<td>').text(elem.maker));
         tr.append($('<td>').text(elem.model));
         tr.append($('<td>').text(elem.price));
         table.append(tr);
-   
-        })
-        $('#box4').append(table);
+      })
+      $('#box4').append(table);
     }
   </script>
 
+
+  <hr>
+
+
+  <!-- 제목(title), 이미지(image + link), 저자(author), 판매가(discount), 출판사(publisher), 출판일(pubdate), ISBN(isbn), 설명(description) -->
+  <!-- 이미지를 클릭하면 링크가 열리도록 표시하기 -->
+  <!-- 설명은 최대 100글자만 표시하기 -->
+
+  <!--
+    ----------------------
+    |          | 제목    |
+    |          | 저자    |
+    |          | 판매가  |
+    |  이미지  | 출판사  |   X  10
+    |          | 출판일  |
+    |          | ISBN    |
+    |          | 설명    |
+    ----------------------
+  -->
+
+  <div id="box5">
+    <button id="btn5">book.xml 가져오기</button>
+  </div>
+  <script>
+    $('#box5').click(function(){
+      $.ajax({
+        // 요청
+        type : 'get',
+        url : 'book.xml',
+        async : true,
+        // 응답
+        dataType : 'xml',
+        success : function(resData){
+          $('#box5').find('div').remove();
+
+        },
+        error: function(jqXHR){
+          alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+        }
+      })
+    })
+
+    function myFunc3(resData){
+      var productList = $('<div>').addClass('product_list');
+      image.append($('<a>').attr('href', elem.link).append($('<img>').attr('src', elem.image)));
+      $.each(resData, function(i, elem){
+        var ul = $('<ul>').addClass('product');
+          ul.append($('<li>').text('제목: ' + elem.title));
+          ul.append($('<li>').text($(elem).atrr('image').text(elem.link)));
+          ul.append($('<li>').text('저자: ' + elem.author));
+          ul.append($('<li>').text('판매가: ' + elem.discount));
+          ul.append($('<li>').text('출판사: ' + elem.publisher));
+          ul.append($('<li>').text('출판일: ' + elem.pubdate));
+          ul.append($('<li>').text('ISBN: ' + elem.isbn));
+          ul.append($('<li>').text('선율: ' + elem.description));
+      })
+    }
+  </script>
+
+  
+  <hr>
+
+
+  <div id="box6">
+    <button id="btn6">book.json 가져오기</button>
+  </div>
+  <script>
+
+  </script>
 
 
 </body>
