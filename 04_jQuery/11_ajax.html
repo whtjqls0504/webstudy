@@ -65,6 +65,8 @@
         /* 응답 */
         dataType: 'xml',
         success: function(resData){
+          // 기존 목록 제거하기
+          $('#box2').find('div').remove();
           // <div class="product_list"> 태그를 jQuery 객체로 만들기
           var productList = $('<div>').addClass('product_list');
           // resData에서 <product> 태그를 가져온 뒤 순회하기
@@ -106,8 +108,93 @@
       display: block;
     }
   </style>
+  <hr>
 
+<!-- 3교시 -->
+  <div id="box3">
+    <button id="btn3">JSON요청1</button>
+  </div>
+  <script>
+    $('#btn3').click(function(){
+      $.ajax({
+        /* 요청 */
+        type : 'get',
+        url : 'product1.json',
+        async : true,
 
+        /* 응답 */
+        dataType : 'json',
+        success : function(resData){    // resData = JSON.parse(xhr.responseText)
+          parseJSON(resData);           // myFunc1 함수 호출
+        },
+        error : function(jqXHR){
+          alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+        }
+      })
+    })
+    // myFunc1 함수 정의
+    function myFunc1(resData){
+      var productList = $('<div>').addClass('product_list');
+        // 배열
+      $.each(resData, function(i, elem){
+        var ul = $('<ul>').addClass('product');
+        ul.append($('<li>').text(elem.maker));
+        ul.append($('<li>').text(elem.model));
+        ul.append($('<li>').text(elem.price));
+
+        // ul를 productList에 넣지 않아서?
+        productList.append(ul);
+
+      })
+      $('#box3').append(productList);  
+    }
+    
+  </script>
+  <style>
+    /* css */
+  </style>
+
+  <hr>
+
+  <div id="box4">
+    <button id="btn4">JSON요청2</button>
+  </div>
+  <script>
+    $('#btn4').click(function (){
+      $.ajax({
+        /* 요청 */
+        type : 'get',
+        url : 'product2.json',
+        async : true,
+
+        /* 응답 */
+        dataType : 'json',
+        // 성공했을 경우
+        success : function(resData){  // resData = JSON.parse(xhr.responseText)
+          $('#box4').find('table').remove();
+          myFunc2(resData);
+          // 응답결과를 table로
+        },
+        error : function(jqXHR){
+          alert(jqXHR.status + '(' + jqXHR.statusText + ')');
+        }
+      })
+    })
+    // myFunc2 함수 정의
+    function myFunc2(resData){
+      var table = $('<table border="1"><thead><tr><td>순번</td><td>제조사</td><td>모델</td><td>가격</td></tr></thead>').addClass('product_list');
+      $.each(resData.products, function(i, elem){
+        var tr = $('<tr>');
+        tr.append($('<td>').text(i + 1)); // 순번
+        tr.append($('<td>').text(elem.maker));
+        tr.append($('<td>').text(elem.model));
+        tr.append($('<td>').text(elem.price));
+        table.append(tr);
+   
+        })
+        $('#box4').append(table);
+    }
+  </script>
 
 
 
